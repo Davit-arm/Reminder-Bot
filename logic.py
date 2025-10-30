@@ -65,5 +65,9 @@ class DB_manager():
             return f'An error occured, please contact the developer. Error details: {e}'
         
     
-    
+
+
+if __name__ == '__main__':
+    manager = DB_manager(os.getenv('DATABASE'))
+    manager.make_tables()
 
