@@ -47,7 +47,7 @@ class DB_manager():
             return rows
         except sqlite3.Error as e:
             return f'A Database error occured, please contact the developer. Error details: {e}'
-        except Exception as e:
+        except Exception as e: 
             return f'An error occured, please contact the developer. Error details: {e}'
         
 
