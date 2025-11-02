@@ -3,15 +3,13 @@
 
 ## A telegram bot that reminds you about your tasks, reminds daily before your deadline, and stops when its past the deadline.
 
-## You can:
-### add new tasks
-### mark the tasks as completed so the bot doesnt remind you anymore
-### remove tasks if they were canceled
-### clear all the tasks, if needed
+## Commands:
+### /add <info>,<deadline(mm-dd-yyy) - adds a new task and starts reminding everyday (by sending reminding messages) and stops when its past the deadline
+### /see_tasks - shows you a list of tasks that are stored in the bot's  database
+### /delete <info> - deletes a task by its info(description) from the bot's database
+
+## Here is a screenshot of all 3 commands
+<img width="1270" height="924" alt="image" src="https://github.com/user-attachments/assets/cd58703b-e553-4177-af26-b09fe538609b" />
 
 
-
-
-
-
-### during the development more commands and functions will probably be added to the bot
+### its bots first version (v1) and is still in development, so its likely for new functions to be added to the bot.
