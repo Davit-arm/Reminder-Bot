@@ -9,7 +9,8 @@
 ### /delete <info> - deletes a task by its info(description) from the bot's database
 
 ## Here is a screenshot of all 3 commands
-<img width="1270" height="924" alt="image" src="https://github.com/user-attachments/assets/cd58703b-e553-4177-af26-b09fe538609b" />
+<img width="1191" height="925" alt="image" src="https://github.com/user-attachments/assets/c6ac5b6d-e38e-4768-87ff-712a508472ca" />
+
 
 
 ### its bots first version (v1) and is still in development, so its likely for new functions to be added to the bot.
