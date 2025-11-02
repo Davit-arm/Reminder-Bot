@@ -1,0 +1,7 @@
+Telebot
+threading
+datetime
+sqlite3
+dotenv
+os
+time
