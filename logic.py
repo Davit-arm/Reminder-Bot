@@ -1,5 +1,6 @@
 import sqlite3
 import datetime
+from datetime import datetime
 import os
 from dotenv import load_dotenv
 import threading
@@ -71,37 +72,37 @@ class DB_manager():
             con = sqlite3.connect(self.db_name)
             cur = con.cursor()
             with con:
-                cur.execute('''SELECT user_id,info, deadline FROM users WHERE user_id = ?''',(user_id,))
+                cur.execute('''SELECT user_id, info, deadline FROM users WHERE user_id = ?''',(user_id,))
                 rows = cur.fetchall()
-                for info, deadline in rows:
+                for user_id,info, deadline in rows:
                     deadline_date = datetime.strptime(deadline, "%d-%m-%Y")
                     if deadline_date >= datetime.now():
-                        active_tasks.append({"info": info, "deadline": deadline_date})
-                        return active_tasks
+                        active_tasks.append({"user_id":user_id,"info": info, "deadline": deadline_date})
+                return active_tasks
                     
         except sqlite3.Error as e:
             print(f'A database error has occured, please contact the developer. Error details: {e}')
         except Exception as e:
             print(f'An error has occured, please contact the developer. Error details: {e}')
 
-    def remind_users(self, bot):
+    def remind_users(self, bot, user_id):
         def _remind():
             
             reminded_tasks = set()
             while True:
                 now = datetime.now()
-                active_tasks = self.get_active_tasks()
+                active_tasks = self.get_active_tasks(user_id)
                 today_str = now.strftime("%d-%m-%Y")
                 for task in active_tasks:
                     info = task['info']
                     deadline = task['deadline']
-                    user_id = task['user_id']
+                    
                     
 
 
                     if deadline.date() >= now.date():
                         days_left =  (deadline.date() - now.date()).days
-                        key = (user_id, info, today_str)
+                        key = (user_id,info, today_str)
 
 
                         if key not in reminded_tasks:
